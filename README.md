@@ -45,5 +45,6 @@ A full-stack cloud-native application for managing blog posts with secure JWT-ba
 
 🔗 Live Links
 🌐 Frontend: http://posts-app-frontend.s3-website-ap-southeast-2.amazonaws.com/login
+
 🔌 API Endpoint: http://posts-api-alb-1842861892.ap-southeast-2.elb.amazonaws.com/
 
