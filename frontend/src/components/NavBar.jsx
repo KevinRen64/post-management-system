@@ -8,7 +8,6 @@ const NavBar = () =>{
       <Link to = "/post/new">New Post</Link> | {" "}
       <Link to = "/login">Login</Link> | {" "}
       <Link to = "/register">Register</Link>
-      <Link to = "/register">test</Link>
     </nav>
   );
 }
