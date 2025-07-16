@@ -37,8 +37,8 @@ jobs:
           docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.ECR_REPOSITORY }}:latest
 
       - name: Deploy to ECS
-        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+        uses: aws-actions/amazon-ecs-update-service@v1
         with:
           cluster: ${{ secrets.ECS_CLUSTER }}
           service: ${{ secrets.ECS_SERVICE }}
-          task-definition: ${{ secrets.ECS_TASK_DEFINITION }}
+
