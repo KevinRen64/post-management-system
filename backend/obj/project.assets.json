@@ -2573,11 +2573,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Junzhang Ren\\Desktop\\PostsManagementAPI\\PostsManagementAPI.csproj",
+      "projectUniqueName": "C:\\Users\\Junzhang Ren\\Desktop\\post-management-system\\backend\\PostsManagementAPI.csproj",
       "projectName": "PostsManagementAPI",
-      "projectPath": "C:\\Users\\Junzhang Ren\\Desktop\\PostsManagementAPI\\PostsManagementAPI.csproj",
+      "projectPath": "C:\\Users\\Junzhang Ren\\Desktop\\post-management-system\\backend\\PostsManagementAPI.csproj",
       "packagesPath": "C:\\Users\\Junzhang Ren\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Junzhang Ren\\Desktop\\PostsManagementAPI\\obj\\",
+      "outputPath": "C:\\Users\\Junzhang Ren\\Desktop\\post-management-system\\backend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Junzhang Ren\\AppData\\Roaming\\NuGet\\NuGet.Config",

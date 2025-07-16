@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wAcHAZGeWc8=",
+  "dgSpecHash": "Cnc/zHLCbcY=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Junzhang Ren\\Desktop\\PostsManagementAPI\\PostsManagementAPI.csproj",
+  "projectFilePath": "C:\\Users\\Junzhang Ren\\Desktop\\post-management-system\\backend\\PostsManagementAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Junzhang Ren\\.nuget\\packages\\bouncycastle.cryptography\\2.5.1\\bouncycastle.cryptography.2.5.1.nupkg.sha512",
     "C:\\Users\\Junzhang Ren\\.nuget\\packages\\dapper\\2.1.66\\dapper.2.1.66.nupkg.sha512",
