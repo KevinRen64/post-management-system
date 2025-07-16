@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "vXbmtafSYctZxOq+udyKG9iQxC76vXvMcWhJgkJ7aME=",
+  "Source": "PostsManagementAPI",
+  "BasePath": "_content/PostsManagementAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

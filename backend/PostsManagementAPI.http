@@ -1,0 +1,6 @@
+@PostsManagementAPI_HostAddress = http://localhost:5089
+
+GET {{PostsManagementAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
