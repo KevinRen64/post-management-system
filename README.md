@@ -48,3 +48,20 @@ A full-stack cloud-native application for managing blog posts with secure JWT-ba
 
 🔌 API Endpoint: http://posts-api-alb-1842861892.ap-southeast-2.elb.amazonaws.com/
 
+
+   Auth Management
+   | HTTP Method | Endpoint                      | Description                                        |
+   | ----------- | ----------------------------- | ------------------------------------------------   |
+   | POST        | `/Auth/Register`              | Registers a new user and stores hashed credentials |
+   | POST        | `/Auth/Login`                 | Verifies credentials and returns success or error  |
+   
+   Post Management
+   | HTTP Method | Endpoint                      | Description                                        |
+   | ----------- | ----------------------------- | ------------------------------------------------   |
+   | GET         | `/Post/GetPosts`              | Retrieves all posts                                |
+   | GET         | `/Post/GetPost/{id}`          | Retrieves a post by postId                         |
+   | POST        | `/Post/AddPost`               | Adds a new post                                    |
+   | PUT         | `/Post/EditPost`              | Updates an existing post                           |
+   | DELETE      | `/Post/DeletePost/{id}`       | Deletes a post by postId                           |
+
+   
