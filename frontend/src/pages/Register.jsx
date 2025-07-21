@@ -1,9 +1,9 @@
-import {useState } from "react"
+import { useState } from "react";
 import axiosClient from "../api/axiosClient";
 import { useNavigate } from "react-router-dom";
 
-const Register = () =>{
-  const  navigate = useNavigate();
+const Register = () => {
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",
@@ -12,37 +12,98 @@ const Register = () =>{
     gender: "Male",
   });
 
-const handleChange = (e) => {
-    setForm({...form, [e.target.name]: e.target.value})
-  }
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
-const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    try{
+    try {
       await axiosClient.post("/auth/register", form);
       alert("Registration successful!");
       navigate("/login");
-    } catch(err) {
+    } catch (err) {
       alert(err.response?.data || "Registration failed");
     }
   };
 
-  return(
-    <div> 
-      <h2>Register</h2>
-      <form onSubmit={handleSubmit}>
-      <input name="firstName" placeholder = "First Name" onChange={handleChange} required />
-      <input name="lastName" placeholder = "Last Name" onChange={handleChange} required />
-      <input name="email" placeholder = "Email" type = "email"  onChange={handleChange} required />
-      <input name="password" placeholder = "Password" type = "password"  onChange={handleChange} required />
-      <select name="gender" onChange={handleChange}>
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-      </select>
-      <button type="submit">Register</button>
-      </form>
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
+      <div className="max-w-xl w-full bg-white p-8 rounded shadow-md">
+        <h2 className="text-2xl font-bold mb-6 text-center text-blue-600">Create a New Account</h2>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm text-gray-600 mb-1">First Name</label>
+              <input
+                name="firstName"
+                type="text"
+                placeholder="John"
+                onChange={handleChange}
+                required
+                className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+            <div>
+              <label className="block text-sm text-gray-600 mb-1">Last Name</label>
+              <input
+                name="lastName"
+                type="text"
+                placeholder="Doe"
+                onChange={handleChange}
+                required
+                className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-sm text-gray-600 mb-1">Email</label>
+            <input
+              name="email"
+              type="email"
+              placeholder="you@example.com"
+              onChange={handleChange}
+              required
+              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm text-gray-600 mb-1">Password</label>
+            <input
+              name="password"
+              type="password"
+              placeholder="********"
+              onChange={handleChange}
+              required
+              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm text-gray-600 mb-1">Gender</label>
+            <select
+              name="gender"
+              onChange={handleChange}
+              value={form.gender}
+              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
+
+          <button
+            type="submit"
+            className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
+          >
+            Register
+          </button>
+        </form>
+      </div>
     </div>
   );
-}
+};
 
 export default Register;
