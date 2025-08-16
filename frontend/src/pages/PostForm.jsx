@@ -5,15 +5,27 @@ import { useNavigate } from "react-router-dom";
 const PostForm = () => {
   const [form, setForm] = useState({
     postTitle: "",
-    postContent: ""
+    postContent: "",
+    status: "Draft",    // 🔹 NEW (already in your code)
+    tagsCsv: ""         // 🔹 NEW (already in your code)
   });
+
+  // NEW: convert CSV -> array
+  const toTagsArray = (csv) =>         // 🔹 (you had this—keeping it)
+    csv.split(",").map(t => t.trim()).filter(Boolean);
 
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axiosClient.post("/post/post", form);
+      // 🔹 CHANGED: send Status + Tags (array), not raw form
+      await axiosClient.post("/post/post", {
+        postTitle: form.postTitle,
+        postContent: form.postContent,
+        status: form.status,               // 🔹 NEW
+        tags: toTagsArray(form.tagsCsv)    // 🔹 NEW
+      });
       alert("Post created successfully!");
       navigate("/");
     } catch (err) {
@@ -68,6 +80,38 @@ const PostForm = () => {
               className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
             />
           </div>
+
+          {/* 🔹 NEW: Status select + Tags input */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm text-gray-600 mb-1" htmlFor="status">Status</label>
+              <select
+                id="status"
+                name="status"
+                value={form.status}
+                onChange={handleChange}
+                className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+                <option>Draft</option>
+                <option>Published</option>
+                <option>Archived</option>
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-sm text-gray-600 mb-1" htmlFor="tagsCsv">Tags (comma separated)</label>
+              <input
+                id="tagsCsv"
+                name="tagsCsv"
+                type="text"
+                placeholder="e.g. intro, first"
+                value={form.tagsCsv}
+                onChange={handleChange}
+                className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+          </div>
+          {/* 🔹 END NEW */}
 
           <button
             type="submit"
